@@ -1,0 +1,49 @@
+This is a collection to help me remember how to do something.
+1. how to connect Windows with Ubuntu
+Windows电脑是专业版或是有远程连接功能
+Ubuntu上安装xrdp套件并开启远程桌面，还有就是使用root账户；
+使用体验只能说很慢，内网里控制都特别慢，卡顿等情况。
+1.1 Ubuntu安装xrdp
+sudo apt-get install xrdp -y
+sudo apt-get install tightvncserver -y
+systemctl进行管理命令
+
+sudo systemctl enable xrdp.service   # 开机启动，默认
+sudo systemctl start xrdp.service    # 启动，安装后自动启动
+sudo systemctl restart xrdp.service  # 重启
+sudo systemctl stop xrdp.service     # 关闭
+Ubuntu开启屏幕共享设置
+
+查看防火墙端口是否打开，
+
+sudo ufw status #查看防火墙状态，也可以看到开放的端口
+sudo ufw disable #关闭防火墙
+sudo ufw enable #打开防火墙
+sudo ufw allow 端口号 #开放端口
+sudo ufw deny 端口号 #关闭端口号
+sudo ufw reload #重启防火墙
+
+如果没有开启的话，开启端口。
+
+sudo ufw allow from any to any port 3389 proto tcp
+sudo fuw reload
+设置root账户密码
+
+sudo passwd root
+****
+****
+#必须为八位，且不能太简单
+查看Ubuntu的内网ip地址
+
+ifconfig
+
+
+
+
+内网地址：192.168.11.38
+
+1.2 Windows远程桌面连接
+打开远程桌面连接：
+
+输入root和设置的root密码，就可以登入了。
+
